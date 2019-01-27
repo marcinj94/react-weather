@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from './Form/Form';
-import Result from './Result/Result'
+import Result from './Result/Result';
 
 const Weather = (props) => {
 
@@ -11,7 +11,10 @@ const Weather = (props) => {
                 inputChange={props.inputChange}
                 submit={props.submit}
             />
-            <Result />
+            <Result
+                weather={props.weather}
+                error={props.error}
+            />
         </div>
     );
 }

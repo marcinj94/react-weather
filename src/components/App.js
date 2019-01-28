@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Weather from './Weather/Weather';
+import Background from './Background/Background';
 
 const APIkey = "de644c6a453a70ee84ec60c65972ef45";
 
@@ -14,6 +15,7 @@ class App extends Component {
       date: "",
       time: "",
       city: "",
+      country: '',
       sunrise: "",
       sunset: "",
       temperature: "",
@@ -33,6 +35,7 @@ class App extends Component {
   handleSubmitShowWeather = (e) => {
     e.preventDefault();
 
+
     const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.inputValue}&APPID=${APIkey}&units=metric`;
 
     fetch(API)
@@ -49,6 +52,7 @@ class App extends Component {
             date: date,
             time: time,
             city: prevState.inputValue,
+            country: data.sys.country,
             sunrise: data.sys.sunrise,
             sunset: data.sys.sunset,
             temperature: data.main.temp,
@@ -74,9 +78,7 @@ class App extends Component {
     return (
       <div className="wrapper">
 
-        {/* <div className="bg-img">
-          zdjecie
-        </div> */}
+        <Background />
 
         <Weather
           inputValue={this.state.inputValue}
@@ -85,17 +87,6 @@ class App extends Component {
           error={this.state.error}
           weather={this.state.weather}
         />
-
-        {/* <div className="weather-app">
-          <form>
-            <input type="text" />
-            <button>Pobierz pogodę</button>
-          </form>
-
-          <div className="result">
-            <p>temperatura: </p>
-          </div>
-        </div> */}
       </div>
     );
   }

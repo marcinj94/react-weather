@@ -2,8 +2,12 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: #f12711;
+  background: linear-gradient(to right, #f5af19, #f12711);
 }
 
-html {
+html,
+input,
+button {
   font-family: 'Montserrat', sans-serif;
 }

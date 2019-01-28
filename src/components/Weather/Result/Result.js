@@ -1,8 +1,9 @@
 import React from 'react';
+import './Result.css';
 
 const Result = (props) => {
 
-    const { date, time, city, sunrise, sunset, temperature, pressure, wind } = props.weather;
+    const { date, time, city, sunrise, sunset, temperature, pressure, wind, country } = props.weather;
 
     let result = null;
 
@@ -12,21 +13,22 @@ const Result = (props) => {
 
         result = (
             <>
-                <p>Dane z dnia: {date}</p>
-                <p>Godzina pobrania danych: {time}</p>
-                <p>Miasto: {city}</p>
-                <p>Wschód słońca: {sunriseTime}</p>
-                <p>Zachód słońca: {sunsetTime}</p>
-                <p>Siła wiatru: {wind} m/s</p>
-                <p>Temperatura: {temperature} &#176;C</p>
-                <p>Ciśnienie: {pressure} hPa</p>
+                <p>Miasto: <strong>{city}</strong></p>
+                <p>Kraj: <strong>{country}</strong></p>
+                <p>Godzina pobrania danych: <strong>{time}</strong></p>
+                <p>Dane z dnia: <strong>{date}</strong></p>
+                <p>Wschód słońca: <strong>{sunriseTime}</strong></p>
+                <p>Zachód słońca: <strong>{sunsetTime}</strong></p>
+                <p>Siła wiatru: <strong>{wind} m/s</strong> </p>
+                <p>Temperatura: <strong>{temperature} &#176;C</strong></p>
+                <p>Ciśnienie: <strong>{pressure} hPa</strong></p>
             </>
         )
     }
 
     return (
         <div className="result">
-            {props.error ? `Nie ma takiego miasta jak ${city}` : result}
+            {props.error ? `Nie ma takiego miasta ${city}` : result}
         </div>
     );
 }

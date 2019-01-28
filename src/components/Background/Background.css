@@ -1,0 +1,61 @@
+.backgroundWrapper {
+    background: url(../../img/bg.jpg) no-repeat center;
+    background-position: center;
+    background-size: cover;
+    min-height: 80vh;
+    flex-basis: 40%;
+    display: none;
+    position: relative
+}
+
+@media(min-width:600px) {
+    .backgroundWrapper {
+        background: url(../../img/bg.jpg) no-repeat center;
+        background-position: center;
+        background-size: cover;
+        min-height: 80vh;
+        flex-basis: 50%;
+        display: block;
+    }
+
+    .backgroundWrapper__title,
+    .backgroundWrapper__description {
+        position: absolute;
+        transform: translateY(-50%);
+        width: 100%;
+    }
+
+    .backgroundWrapper__title {
+        top: 35%;
+        font-size: 38px;
+    }
+
+    .backgroundWrapper__description {
+        top: 55%;
+        font-size: 14px;
+    }
+}
+
+@media(min-width: 700px) {
+    .backgroundWrapper__title {
+        font-size: 45px;
+    }
+
+    .backgroundWrapper__description {
+        top: 47%;
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .backgroundWrapper__title {
+        font-size: 55px;
+    }
+
+    .backgroundWrapper__description {
+        top: 47%;
+        font-size: 22px;
+    }
+
+
+}
